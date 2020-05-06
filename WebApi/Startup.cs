@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebApi.Data;
 
 namespace WebApi
 {
@@ -21,6 +23,10 @@ namespace WebApi
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            services.AddDbContext<BreedDbContext>(settings => settings.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllers()
+                .AddNewtonsoftJson(settings => settings.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +50,7 @@ namespace WebApi
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
