@@ -1,3 +1,28 @@
 ﻿@page "/"
+@page "/home"
+@page "/api"
+@inject NavigationManager navigation
 
-<h1>Hello, world!</h1>
+
+
+<h2><b>API</b></h2>
+<br />
+
+<h5><u>Introduction</u></h5>
+<br />
+
+<p>
+    <i class="text-danger">@navigation.Uri</i> can be used for fetching dog images as well as basic information about dog breeds. This includes usual breed height
+    and weight, breed group (category), short description and breed personality traits.This website also contains a quick <a href="quiz"><b>Quiz</b></a> that you
+    can take to determine the perfect breed for you!
+</p>
+<br />
+
+<h5><u>Calling the API</u></h5>
+<br />
+
+<h5>Authentication</h5>
+<p>
+    No authentication is required to use <i class="text-danger">@navigation.Uri</i>. Enjoy!
+</p>
+<br />
