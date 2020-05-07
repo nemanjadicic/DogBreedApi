@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -182,7 +183,11 @@ namespace WebScrapper.Logic
                 Uri uriAddress = new Uri(url);
 
                 string fullFilePath = $@"{FolderLocator.ImagesFolderLocation()}{dogName.Replace(" ", "")}.jpg";
-                client.DownloadFileAsync(uriAddress, fullFilePath);
+
+                if (!File.Exists(fullFilePath))
+                {
+                    client.DownloadFileAsync(uriAddress, fullFilePath);
+                }
             }
         }
     }
