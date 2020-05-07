@@ -1,5 +1,6 @@
 ﻿@page "/endpoints"
 @page "/api/endpoints"
+@using WebApi.PageComponents
 @inject NavigationManager navigation
 
 <h2><b>Endpoints</b></h2>
@@ -8,69 +9,22 @@
 
 
 <ul>
-    <li>
-        <h5>Fetch all breeds:</h5>
-        <p>
-            <span style="background-color: lightgreen">GET @navigation.BaseUri</span><span style="background-color: lightgreen">api/breeds</span>
-            - returns all breeds.
-        </p>
-    </li>
+    <EndpointListItem Title="Fetch all Breeds" UrlSuffix="" Explanation="returns all Breeds" />
 
-    <li>
-        <h5>Fetch breed by ID:</h5>
-        <p>
-            <span style="background-color: lightgreen">GET @navigation.BaseUri</span><span style="background-color: lightgreen">api/breeds/10</span>
-            - returns breed by its ID.
-        </p>
-    </li>
+    <EndpointListItem Title="Fetch Breed by ID" UrlSuffix="10" Explanation="returns Breed by its ID" />
 
-    <li>
-        <h5>Fetch a random breed:</h5>
-        <p>
-            <span style="background-color: lightgreen">GET @navigation.BaseUri</span><span style="background-color: lightgreen">api/breeds/random</span>
-            - returns a random breed.
-        </p>
-    </li>
+    <EndpointListItem Title="Fetch a random Breed" UrlSuffix="random" Explanation="returns a random Breed" />
 
-    <li>
-        <h5>Fetch breeds by category:</h5>
-        <p>
-            <span style="background-color: lightgreen">GET @navigation.BaseUri</span><span style="background-color: lightgreen">api/breeds/categoryName</span>
-            (toy, herding, sporting, working, hound, terrier, non-sporting, mixes and more) - returns all breeds of the specified category.
-        </p>
-    </li>
+    <EndpointListItem Title="Fetch Breeds by category" UrlSuffix="category/categoryName"
+                      Explanation="(toy, herding, sporting, working, hound, terrier, non-sporting...) - returns all Breeds of the specified category" />
 
-    <li>
-        <h5>Fetch friendly breeds:</h5>
-        <p>
-            <span style="background-color: lightgreen">GET @navigation.BaseUri</span><span style="background-color: lightgreen">api/breeds/friendly</span>
-            - returns all friendly breeds.
-        </p>
-    </li>
+    <EndpointListItem Title="Fetch friendly Breeds" UrlSuffix="friendly" Explanation="returns all friendly Breeds" />
 
-    <li>
-        <h5>Fetch protector breeds:</h5>
-        <p>
-            <span style="background-color: lightgreen">GET @navigation.BaseUri</span><span style="background-color: lightgreen">api/breeds/protector</span>
-            - returns breeds that are good as watchdogs.
-        </p>
-    </li>
+    <EndpointListItem Title="Fetch protector Breeds" UrlSuffix="protector" Explanation="returns Breeds that are good as watchdogs" />
 
-    <li>
-        <h5>Fetch low maitenance breeds:</h5>
-        <p>
-            <span style="background-color: lightgreen">GET @navigation.BaseUri</span><span style="background-color: lightgreen">api/breeds/low-maitenance</span>
-            - returns breeds that don't have many needs.
-        </p>
-    </li>
+    <EndpointListItem Title="Fetch low maitenance Breeds" UrlSuffix="low-maitenance" Explanation="returns Breeds that don't have many needs" />
 
-    <li>
-        <h5>Fetch intelligent breeds:</h5>
-        <p>
-            <span style="background-color: lightgreen">GET @navigation.BaseUri</span><span style="background-color: lightgreen">api/breeds/intelligent</span>
-            - returns breeds that are super intelligent
-        </p>
-    </li>
+    <EndpointListItem Title="Fetch intelligent Breeds" UrlSuffix="intelligent" Explanation="returns Breeds that are super intelligent" />
 
     <li>
         <h5>Fetch dog breed image:</h5>
