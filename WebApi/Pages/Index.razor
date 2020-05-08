@@ -1,6 +1,8 @@
 ﻿@page "/"
 @page "/home"
 @page "/api"
+@using WebApi.Models
+@using Newtonsoft.Json
 @inject NavigationManager navigation
 
 
@@ -9,21 +11,50 @@
 <br />
 
 <h5><u>Introduction</u></h5>
-<br />
-
-<p>
-    <i class="text-danger">@navigation.Uri</i> can be used for fetching dog images as well as basic information about dog breeds. 
-    This includes usual breed height and weight, breed group (category), short description and breed personality traits. 
-    This website also contains information about <a href="webscrapper"><b>Web Scrapper</b></a>, the other project contained within this Visual 
-    Studio Solution. This includes instructions on how to get this website going, if you're using this for the first time.
+<p class="text-justify">
+    <i class="text-danger">@navigation.Uri</i> can be used for fetching dog images as well as basic information about dog breeds.
+    This includes usual breed height and weight, breed group (category), short description and breed personality traits.
+    You can find the API endpoints <a href="endpoints"><b>here</b></a>. This website also contains information about 
+    <a href="webscrapper"><b>Web Scrapper</b></a>, the other project contained within this Visual Studio Solution. 
+    This includes instructions on how to get this website going, if you're using this for the first time.
 </p>
 <br />
 
 <h5><u>Calling the API</u></h5>
 <br />
-
 <h5>Authentication</h5>
 <p>
-    No authentication is required to use <i class="text-danger">@navigation.Uri</i>. Enjoy!
+    No authentication is required to use <i class="text-danger">@navigation.Uri</i> API. Enjoy!
 </p>
 <br />
+
+<h5>API Response Format</h5>
+<p>All API endpoints follow their respective browser URLs, and the response is, by default, formated to return Json data.</p>
+<br />
+<h5>Example:</h5>
+<p style="background-color:lavender"><pre>@BreedJson</pre></p>
+
+
+
+@code
+{
+    public string BreedJson { get; set; } = "";
+
+    protected override void OnInitialized()
+    {
+        Breed displayBreed = new Breed
+        {
+            Name = "This Breed Name",
+            Category = "Some Category",
+            Height = "17 to 21 inches",
+            Weight = "10 to 15 pounds",
+            LifeSpan = "10 to 14 years",
+            Summary = "This breed comes from Asia. This breed is fairly friendly and " +
+                "tolerant towards strangers. It requires lots of exercise.",
+            ImageUrl = $"{navigation.BaseUri}api/images/thisbreedname",
+            BreedTraits = new Traits()
+        };
+
+        BreedJson = JsonConvert.SerializeObject(displayBreed, Formatting.Indented);
+    }
+}
