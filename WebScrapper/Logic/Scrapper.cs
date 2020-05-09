@@ -123,8 +123,11 @@ namespace WebScrapper.Logic
 
 
                 // save breed object to the DB
-                context.Breeds.Add(currentBreed);
-                context.SaveChangesAsync().GetAwaiter().GetResult();
+                if (!context.Breeds.Contains(currentBreed))
+                {
+                    context.Breeds.Add(currentBreed);
+                    context.SaveChangesAsync().GetAwaiter().GetResult();
+                }
 
 
 
@@ -163,8 +166,11 @@ namespace WebScrapper.Logic
                 currentTraits.Breed = currentBreed;
 
                 // save Traits object to the DB
-                context.Add(currentTraits);
-                context.SaveChangesAsync().GetAwaiter().GetResult();
+                if (!context.Traits.Contains(currentTraits))
+                {
+                    context.Add(currentTraits);
+                    context.SaveChangesAsync().GetAwaiter().GetResult(); 
+                }
 
                 // display progress message
                 Console.WriteLine($"Scrapping data for {currentBreed.Name}...");
