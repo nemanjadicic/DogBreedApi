@@ -1,3 +1,55 @@
 ﻿@page "/webscrapper"
+@inject NavigationManager navigation
 
-    <h2><b>Web Scrapper</b></h2>
+    <h1 style="font-family: Georgia"><b>Web Scrapper</b></h1>
+    
+<hr />
+<br />
+
+<p class="text-justify">
+    <b>Web Scrapper</b> is the second project in this Visual Studio Solution. This is a .Net Core Console application that:
+    <br />
+    <br />
+    <ol>
+        <li>Ensures the Database is created, if you're running it for the 1st time on your PC</li>
+        <li>Connects to the <a href="http://www.vetstreet.com/dogs">Source Website</a></li>
+        <li>Gathers the Data for all 244 Dog Breeds covered on the source website</li>
+        <li>Creates database Entities for each individual dog breed from the source website and populates the Database with data</li>
+        <li>Downloads the respective dog's images and places them into Web Api wwwroot/images folder, naming them
+        by Breed's name in the process</li>
+    </ol>
+    <br />
+    In this order. So, basically Web Scrapper is a tool that gathers all the data that <i class="text-danger">@navigation.BaseUri</i>
+    seeds as API. It requires to be run only once on your PC, after which you can switch the starting project of the Visual Studio Solution
+    to Web Api Project and use this service freely.
+</p>
+<hr />
+
+<h5><u>How to use</u></h5>
+
+<p class="text-justify">
+    If you're seeing this, it means you already cloned this repository to your local PC and ran the Web Api project in VS. To run the
+    Web Scrapper, simply close this and then:
+    <ol>
+        <li>Navigate WebScrapper project in Visual Studio's solution explorer</li>
+        <li>Locate "WebScrapper" project</li>
+        <li>Right click on "WebScrapper" and choose "Set As StartUp Project"</li>
+        <li>You're good to go! You can now press F5 to start the WebScrapper</li>
+    </ol>
+</p>
+<p class="text-justify">
+    Once you started the Web Scrapper, since the <a href="http://www.vetstreet.com/dogs">Source Website</a> contains data for 244 dog
+    breeds, the Web Scrapper requires some time to gather all information and download all dog breed images. Usually this takes around
+    3 to 4 minutes. However, you can stop the application at any time. It's advised to let it run until at least 15-20 dog breeds are
+    covered, just so you can have info about each breed category in your database.
+</p>
+<hr />
+
+<h5><u>Potential Issues</u></h5>
+
+<p class="text-justify">
+    It's advised to use Web Scrapper only once. Its purpose is to just populate the database with dog breed data and download the dog
+    images, so then they can be seeded by Web Api. If you run the Web Scrapper for the second time, there is a possibility of duplicating
+    some data in the database, although it's very unlikely.
+</p>
+<hr />
