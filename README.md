@@ -4,4 +4,4 @@
 ### Key Features:
 * Simple .NET Core Console application that ensures the Database is created on first use and "scrapes" every dog breed data from the [source website](http://www.vetstreet.com/dogs), also downloading images for each individual dog breed in the process.
 * ASP .NET Core Web API service that seeds the data that the database had been populated with. It supports multiple endpoints and, by default, returns data in Json format, except for the breed image.
-* A simple ASP .NET Core Blazor Server-Side WebSite that acts as a presentation for the Web API service, as well as the Web Scrapper project.
+* A simple ASP .NET Core Blazor Server-Side website that acts as a presentation for the Web API service, as well as the Web Scrapper project.
